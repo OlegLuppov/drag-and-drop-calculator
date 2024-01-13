@@ -5,6 +5,8 @@ module.exports = {
 		'eslint:recommended',
 		'plugin:@typescript-eslint/recommended',
 		'plugin:react-hooks/recommended',
+		'plugin:react/recommended',
+		'plugin:react/jsx-runtime',
 	],
 	ignorePatterns: ['dist', '.eslintrc.cjs'],
 	parser: '@typescript-eslint/parser',
@@ -24,6 +26,13 @@ module.exports = {
 		'function-paren-newline': 'off',
 		'arrow-body-style': 'off',
 		'@typescript-eslint/no-unused-vars': 'warn',
+		'react/function-component-definition': [
+			2,
+			{
+				'namedComponents': 'function-declaration',
+				'unnamedComponents': 'arrow-function',
+			},
+		],
 		'react/destructuring-assignment': [0],
 		'react/prop-types': [0],
 		'react-hooks/rules-of-hooks': 'error',
