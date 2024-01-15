@@ -1,0 +1,15 @@
+@mixin flex($align-items: start, $justify-content: center) {
+	display: flex;
+	align-items: $align-items;
+	justify-content: $justify-content;
+}
+
+@mixin bgPositionImg(
+	$background-repeat: no-repeat,
+	$background-position: center,
+	$background-size: contain
+) {
+	background-repeat: $background-repeat;
+	background-position: $background-position;
+	background-size: $background-size;
+}

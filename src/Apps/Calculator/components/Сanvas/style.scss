@@ -1,0 +1,22 @@
+.calculator__canvas {
+	width: 50%;
+	height: 514px;
+	@include flex(center);
+	flex-direction: column;
+	gap: 12px;
+	border: 2px dashed $grey3;
+	transition: all 0.3s;
+	&--drag-enter {
+		background-color: $blue2;
+	}
+	&-tooltip-wrapper {
+		@include flex(center, start);
+		flex-direction: column;
+		.calculator__canvas-tooltip-i {
+			width: 20px;
+			height: 20px;
+			background-image: url('../../assets/images/icons/Group\ 2.svg');
+			@include bgPositionImg();
+		}
+	}
+}

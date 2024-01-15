@@ -1,0 +1,7 @@
+@import url('./styles/style.scss');
+
+.calculator__wrapper {
+	max-width: 695px;
+	margin: 0 auto;
+	@include flex();
+}
