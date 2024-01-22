@@ -1,5 +1,5 @@
 .calculator__canvas {
-	width: 50%;
+	width: 243px;
 	height: 514px;
 	@include flex(center);
 	flex-direction: column;
@@ -17,6 +17,18 @@
 			height: 20px;
 			background-image: url('../../assets/images/icons/Group\ 2.svg');
 			@include bgPositionImg();
+			margin-bottom: 12px;
+		}
+		.calculator__canvas-tooltip {
+			width: 103px;
+			@include font(Inter, 400, 12px, 14.52px);
+			color: $grey4;
+			&--main {
+				width: 100%;
+				@include font();
+				color: $blue1;
+				margin-bottom: 4px;
+			}
 		}
 	}
 }

@@ -1,9 +1,7 @@
 .calculator__sidebar {
-	width: 50%;
+	width: 240px;
 	height: 514px;
-	p {
-		background-color: black;
-		color: $blue1;
-		cursor: move;
-	}
+	@include flex(center, end);
+	flex-direction: column;
+	gap: 12px;
 }

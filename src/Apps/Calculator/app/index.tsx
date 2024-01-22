@@ -2,7 +2,7 @@ import './style.scss'
 import Sidebar from '../components/Sidebar'
 import Canvas from '../components/Сanvas'
 
-function Calculator() {
+const Calculator = () => {
 	return (
 		<div className='calculator__wrapper'>
 			<Sidebar />

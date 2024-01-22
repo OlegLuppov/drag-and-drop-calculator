@@ -29,7 +29,7 @@ module.exports = {
 		'react/function-component-definition': [
 			2,
 			{
-				'namedComponents': 'function-declaration',
+				'namedComponents': 'arrow-function',
 				'unnamedComponents': 'arrow-function',
 			},
 		],
@@ -38,5 +38,6 @@ module.exports = {
 		'react-hooks/rules-of-hooks': 'error',
 		'react-hooks/exhaustive-deps': 'off',
 		'testing-library/no-debugging-utils': 'off',
+		'react-refresh/only-export-components': 'off',
 	},
 }
