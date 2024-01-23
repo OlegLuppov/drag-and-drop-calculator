@@ -8,7 +8,7 @@
 	padding: 4px;
 	gap: 8px;
 	&--display {
-		height: 52px;
+		height: 60px;
 	}
 
 	&--operators {
@@ -16,8 +16,12 @@
 		flex-wrap: nowrap;
 	}
 
+	&--numbers {
+		height: 225px;
+	}
+
 	&--equals {
-		height: 64px;
+		height: 72px;
 	}
 
 	.calculator__item {

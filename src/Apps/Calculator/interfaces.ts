@@ -8,3 +8,7 @@ export interface IitemsGroups {
 export interface IPropsForItemCalculator {
 	data?: IitemsGroups
 }
+
+export interface IPropsSwitch {
+	handlerSwitch: (bol: boolean) => void
+}

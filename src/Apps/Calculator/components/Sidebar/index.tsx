@@ -13,16 +13,12 @@ spy((e) => {
 
 const Sidebar = () => {
 	const {
-		calculator: { itemsGroups, setItems, sideBarItems },
+		calculator: { itemsGroups },
 	} = useStores()
-
-	useEffect(() => {
-		setItems(itemsGroups, 'sidebar')
-	}, [])
 
 	return (
 		<div className='calculator__sidebar'>
-			{sideBarItems.map((item) => (
+			{itemsGroups.map((item) => (
 				<ItemCalculator key={item.id} data={item} />
 			))}
 		</div>

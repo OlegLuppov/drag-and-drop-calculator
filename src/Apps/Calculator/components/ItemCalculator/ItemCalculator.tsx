@@ -7,6 +7,7 @@ const ItemCalculator = ({ data }: IPropsForItemCalculator) => {
 	if (!data) return
 	return (
 		<div
+			draggable={true}
 			data-type={data.groupName}
 			className={cl(`calculator__item-wrapper calculator__item-wrapper--${data.groupName}`)}
 		>

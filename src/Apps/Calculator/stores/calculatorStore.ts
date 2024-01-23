@@ -15,24 +15,23 @@ class CalculatorStore {
 		{ id: v4(), groupName: 'equals', items: ['='], onSidebar: true },
 	]
 
-	sideBarItems: IitemsGroups[] = []
 	canvasItems: IitemsGroups[] = []
 
 	constructor() {
 		makeAutoObservable(this)
 	}
 
-	setItems = (value: IitemsGroups[], zoneName: string) => {
-		if (zoneName === 'sidebar') {
-			this.sideBarItems = value
-		}
+	// setItems = (value: IitemsGroups[], zoneName: string) => {
+	// 	if (zoneName === 'sidebar') {
+	// 		this.sideBarItems = value
+	// 	}
 
-		if (zoneName === 'canvas') {
-			this.canvasItems = value
-		}
+	// 	if (zoneName === 'canvas') {
+	// 		this.canvasItems = value
+	// 	}
 
-		return
-	}
+	// 	return
+	// }
 }
 
 export default new CalculatorStore()

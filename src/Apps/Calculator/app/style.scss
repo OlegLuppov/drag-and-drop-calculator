@@ -4,8 +4,18 @@
 	max-width: 1920px;
 	padding: 38px 10px 0 10px;
 	.calculator__wrapper {
-		width: 100%;
-		@include flex();
-		gap: 56px;
+		width: 539px;
+		margin: 0 auto;
+		@include flex(center, start);
+		flex-direction: column;
+		gap: 30px;
+		.calculator__switch-wrapper {
+			width: 100%;
+			@include flex(center, end);
+		}
+		.calculator {
+			@include flex(center, center);
+			gap: 56px;
+		}
 	}
 }
