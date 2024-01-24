@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import ItemCalculator from '../ItemCalculator/ItemCalculator'
 import './style.scss'
 import { observer } from 'mobx-react-lite'

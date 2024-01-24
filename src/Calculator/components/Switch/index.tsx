@@ -6,7 +6,9 @@ const Switch = ({ handlerSwitch }: IPropsSwitch) => {
 	return (
 		<div className={cl('calculator__switch')}>
 			<input
-				onChange={() => handlerSwitch(false)}
+				onChange={() => {
+					handlerSwitch(false)
+				}}
 				type='radio'
 				id='calculator__switch-inp-runtime'
 				name='calc-switch'

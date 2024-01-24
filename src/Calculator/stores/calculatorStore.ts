@@ -1,4 +1,4 @@
-import { makeAutoObservable } from 'mobx'
+import { action, makeObservable, observable } from 'mobx'
 import { v4 } from 'uuid'
 import { IitemsGroups } from '../interfaces'
 
@@ -18,20 +18,24 @@ class CalculatorStore {
 	canvasItems: IitemsGroups[] = []
 
 	constructor() {
-		makeAutoObservable(this)
+		makeObservable(this, {
+			itemsGroups: observable,
+			canvasItems: observable,
+			setItems: action.bound,
+		})
 	}
 
-	// setItems = (value: IitemsGroups[], zoneName: string) => {
-	// 	if (zoneName === 'sidebar') {
-	// 		this.sideBarItems = value
-	// 	}
+	setItems(value: IitemsGroups[], zoneName: string) {
+		if (zoneName === 'canvas') {
+			this.canvasItems = value
+		}
+		this.test()
+		return
+	}
 
-	// 	if (zoneName === 'canvas') {
-	// 		this.canvasItems = value
-	// 	}
-
-	// 	return
-	// }
+	private test() {
+		console.log('test')
+	}
 }
 
 export default new CalculatorStore()
