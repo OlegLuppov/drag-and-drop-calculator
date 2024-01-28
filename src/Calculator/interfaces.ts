@@ -7,8 +7,14 @@ export interface IitemsGroups {
 
 export interface IPropsForItemCalculator {
 	data?: IitemsGroups
+	isConstructor: boolean
 }
 
 export interface IPropsSwitch {
+	isConstructor: boolean
 	handlerSwitch: (bol: boolean) => void
+}
+
+export interface IPropsSidebar {
+	isConstructor: boolean
 }

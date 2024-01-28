@@ -18,10 +18,10 @@ const Calculator = () => {
 	return (
 		<div className={cl('calculator__wrapper')}>
 			<div className={cl('calculator__switch-wrapper')}>
-				<Switch handlerSwitch={handlerSwitch} />
+				<Switch isConstructor={isConstructor} handlerSwitch={handlerSwitch} />
 			</div>
 			<div className={cl('calculator')}>
-				<Sidebar />
+				<Sidebar isConstructor={isConstructor} />
 				<Canvas />
 			</div>
 		</div>

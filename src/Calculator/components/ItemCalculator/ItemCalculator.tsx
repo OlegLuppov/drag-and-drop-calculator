@@ -3,11 +3,11 @@ import cl from 'classnames'
 import { IPropsForItemCalculator } from '../../interfaces'
 import { v4 } from 'uuid'
 
-const ItemCalculator = ({ data }: IPropsForItemCalculator) => {
+const ItemCalculator = ({ data, isConstructor }: IPropsForItemCalculator) => {
 	if (!data) return
 	return (
 		<div
-			draggable={true}
+			draggable={isConstructor ? isConstructor : false}
 			data-type={data.groupName}
 			className={cl(`calculator__item-wrapper calculator__item-wrapper--${data.groupName}`)}
 		>

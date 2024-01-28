@@ -3,6 +3,7 @@ import './style.scss'
 import { observer } from 'mobx-react-lite'
 import { useStores } from '../../stores/rootStoreContext'
 import { spy } from 'mobx'
+import { IPropsSidebar } from '../../interfaces'
 
 spy((e) => {
 	if (e.type === 'action') {
@@ -10,7 +11,7 @@ spy((e) => {
 	}
 })
 
-const Sidebar = () => {
+const Sidebar = ({ isConstructor }: IPropsSidebar) => {
 	const {
 		calculator: { itemsGroups },
 	} = useStores()
@@ -18,7 +19,7 @@ const Sidebar = () => {
 	return (
 		<div className='calculator__sidebar'>
 			{itemsGroups.map((item) => (
-				<ItemCalculator key={item.id} data={item} />
+				<ItemCalculator isConstructor={isConstructor} key={item.id} data={item} />
 			))}
 		</div>
 	)
