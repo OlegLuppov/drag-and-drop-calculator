@@ -18,3 +18,7 @@ export interface IPropsSwitch {
 export interface IPropsSidebar {
 	isConstructor: boolean
 }
+
+export interface IPropsCanvas {
+	isConstructor: boolean
+}

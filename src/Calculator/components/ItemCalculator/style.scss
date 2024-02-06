@@ -1,14 +1,26 @@
 .calculator__item-wrapper {
 	width: 100%;
-	@include flex(center);
 	border: 1px solid #e2e3e5;
 	border-radius: 6px;
 	@include flex(center, space-around);
 	flex-wrap: wrap;
 	padding: 4px;
 	gap: 8px;
+	&--disabled {
+		opacity: 0.5;
+		pointer-events: none;
+	}
 	&--display {
 		height: 60px;
+		.calculator__result {
+			@include flex(center, end);
+			align-self: stretch;
+			border-radius: 6px;
+			width: 100%;
+			@include font(Inter, 800, 36px, 43.57px);
+			background-color: $grey1;
+			padding-right: 8px;
+		}
 	}
 
 	&--operators {
@@ -24,21 +36,13 @@
 		height: 72px;
 	}
 
-	.calculator__item {
+	.calculator__btn {
 		@include flex(center, center);
-		border: 1px solid $grey2;
-		border-radius: 6px;
 		align-self: stretch;
 		@include font(Inter, 500, 14px, 15px);
-		&--display {
-			width: 100%;
-			@include font(Inter, 800, 36px, 43.57px);
-			justify-content: end;
-			border: none;
-			background-color: $grey1;
-			padding-right: 8px;
-		}
-
+		border: 1px solid $grey2;
+		border-radius: 6px;
+		background-color: #fff;
 		&--operators {
 			padding: 0 21px;
 		}

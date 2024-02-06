@@ -1,8 +1,8 @@
-import './style.scss'
-import Sidebar from '../components/Sidebar'
-import Canvas from '../components/Сanvas'
+import './app.scss'
+import Sidebar from './components/Sidebar'
+import Canvas from './components/Сanvas'
 import cl from 'classnames'
-import Switch from '../components/Switch'
+import Switch from './components/Switch'
 import { useState } from 'react'
 
 const Calculator = () => {
@@ -22,7 +22,7 @@ const Calculator = () => {
 			</div>
 			<div className={cl('calculator')}>
 				<Sidebar isConstructor={isConstructor} />
-				<Canvas />
+				<Canvas isConstructor={isConstructor} />
 			</div>
 		</div>
 	)

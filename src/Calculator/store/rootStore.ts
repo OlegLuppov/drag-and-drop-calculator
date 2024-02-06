@@ -1,4 +1,4 @@
-import calculatorStore from './calculatorStore'
+import calculatorStore from '../features/calculatorDesignerStore'
 
 class RootStore {
 	calculator = calculatorStore

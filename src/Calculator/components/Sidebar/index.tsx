@@ -1,15 +1,8 @@
 import ItemCalculator from '../ItemCalculator/ItemCalculator'
 import './style.scss'
 import { observer } from 'mobx-react-lite'
-import { useStores } from '../../stores/rootStoreContext'
-import { spy } from 'mobx'
+import { useStores } from '../../store/rootStoreContext'
 import { IPropsSidebar } from '../../interfaces'
-
-spy((e) => {
-	if (e.type === 'action') {
-		console.log(e)
-	}
-})
 
 const Sidebar = ({ isConstructor }: IPropsSidebar) => {
 	const {

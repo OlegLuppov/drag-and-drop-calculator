@@ -1,59 +1,48 @@
 import cl from 'classnames'
 import './style.scss'
 import { useState } from 'react'
-import { spy } from 'mobx'
-// import { useStores } from '../../stores/rootStoreContext'
 import { observer } from 'mobx-react-lite'
+import { useStores } from '../../store/rootStoreContext'
+import Tooltip from '../Tooltip/Tooltip'
+import ItemCalculator from '../ItemCalculator/ItemCalculator'
+import { IPropsCanvas } from '../../interfaces'
 
-// spy((e) => {
-// 	if (e.type === 'action') {
-// 		console.log(e)
-// 	}
-// })
+const Canvas = ({ isConstructor }: IPropsCanvas) => {
+	const {
+		calculator: { itemsGroups, setItems, canvasItems },
+	} = useStores()
 
-const Canvas = () => {
-	// const {
-	// 	calculator: { itemsGroups, changeItemsGroups },
-	// } = useStores()
 	const [isDragOver, setIsDragOver] = useState<boolean>(false)
 
-	function hendlerDragEnter(e: React.DragEvent<HTMLDivElement>) {
-		e.preventDefault()
+	function handDrop(e: React.DragEvent<HTMLElement>) {
 		e.stopPropagation()
-		setIsDragOver(true)
-	}
 
-	function hendlerDragLeave(e: React.DragEvent<HTMLDivElement>) {
-		e.preventDefault()
-		e.stopPropagation()
-		setIsDragOver(false)
+		if (!itemsGroups || !itemsGroups.length) return
+
+		const dataType = e.dataTransfer.getData('data-type')
+
+		const findGroupItem = itemsGroups.find((group) => group.groupName === dataType)
+
+		if (!findGroupItem) return
+
+		setItems(findGroupItem, 'canvas')
 	}
 
 	return (
 		<div
-			className={cl('calculator__canvas', { 'calculator__canvas--drag-enter': isDragOver })}
-			onDragEnter={(e) => hendlerDragEnter(e)}
-			onDragOver={(e) => {
-				e.preventDefault()
-			}}
-			onDragLeave={(e) => {
-				hendlerDragLeave(e)
-				setIsDragOver(false)
-			}}
-			onDrop={(e) => {
-				e.preventDefault()
-				console.log(e.target)
-				console.log('drop')
-				setIsDragOver(false)
-			}}
+			className={cl('calculator__canvas', {
+				'calculator__canvas--drag-enter': isDragOver,
+			})}
+			onDrop={(e) => handDrop(e)}
+			onDragOver={(e) => e.preventDefault()}
 		>
-			<div className={cl('calculator__canvas-tooltip-wrapper')}>
-				<i className={cl('calculator__canvas-tooltip-i')}></i>
-				<span className={cl('calculator__canvas-tooltip calculator__canvas-tooltip--main')}>
-					Перетащите сюда
-				</span>
-				<span className={cl('calculator__canvas-tooltip')}>любой элемент из левой панели</span>
-			</div>
+			{!canvasItems || !canvasItems.length ? (
+				<Tooltip />
+			) : (
+				canvasItems.map((item) => (
+					<ItemCalculator isConstructor={isConstructor} key={item.id} data={item} />
+				))
+			)}
 		</div>
 	)
 }

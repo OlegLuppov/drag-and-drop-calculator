@@ -1,18 +1,19 @@
 import { action, makeObservable, observable } from 'mobx'
 import { v4 } from 'uuid'
 import { IitemsGroups } from '../interfaces'
+import { calcData } from '../constants/data'
 
 class CalculatorStore {
 	itemsGroups: IitemsGroups[] = [
-		{ id: v4(), groupName: 'display', items: ['0'], onSidebar: true },
-		{ id: v4(), groupName: 'operators', items: ['/', 'x', '-', '+'], onSidebar: true },
+		{ id: v4(), groupName: 'display', items: calcData.display, onSidebar: true },
+		{ id: v4(), groupName: 'operators', items: calcData.operators, onSidebar: true },
 		{
 			id: v4(),
 			groupName: 'numbers',
-			items: ['7', '8', '9', '4', '5', '6', '1', '2', '3', '0', ','],
+			items: calcData.numbers,
 			onSidebar: true,
 		},
-		{ id: v4(), groupName: 'equals', items: ['='], onSidebar: true },
+		{ id: v4(), groupName: 'equals', items: calcData.equals, onSidebar: true },
 	]
 
 	canvasItems: IitemsGroups[] = []
@@ -25,16 +26,11 @@ class CalculatorStore {
 		})
 	}
 
-	setItems(value: IitemsGroups[], zoneName: string) {
+	setItems(value: IitemsGroups, zoneName: string) {
 		if (zoneName === 'canvas') {
-			this.canvasItems = value
+			value.onSidebar = false
+			this.canvasItems.push(value)
 		}
-		this.test()
-		return
-	}
-
-	private test() {
-		console.log('test')
 	}
 }
 
