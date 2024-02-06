@@ -5,7 +5,7 @@ import cl from 'classnames'
 import Switch from './components/Switch'
 import { useState } from 'react'
 
-const Calculator = () => {
+const App = () => {
 	const [isConstructor, setConstructor] = useState<boolean>(true)
 
 	function handlerSwitch(bol: boolean) {
@@ -28,4 +28,4 @@ const Calculator = () => {
 	)
 }
 
-export default Calculator
+export default App
